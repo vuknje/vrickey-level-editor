@@ -22,7 +22,6 @@ class ScrollSync {
         return throttle(() => {
             if (this.disabled) return;
             if (this.#scrollSource.preview) return;
-            console.log('editor scroll')
             this.#scrollSource.editor = true;
             this.previewEl.scrollTop = this.startPreviewScroll - ((this.startEditorScroll - this.editorEl.scrollTop) * this.scrollRatio);
             this.stopSyncFrom('editor');
@@ -33,7 +32,6 @@ class ScrollSync {
         return throttle(() => {
             if (this.disabled) return;
             if (this.#scrollSource.editor) return;
-            console.log('preview scroll')
             this.#scrollSource.preview = true;
             this.editorEl.scrollTop = this.startEditorScroll - ((this.startPreviewScroll - this.previewEl.scrollTop) * 1 / this.scrollRatio);
             this.stopSyncFrom('preview');
