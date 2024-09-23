@@ -1,0 +1,248 @@
+body {
+    overflow: hidden;
+}
+
+body, textarea {
+    font-family: arial;
+    background-color: black;
+    color: white;
+}
+
+button {
+    padding: 4px;
+    font-size: 22px;
+    margin-bottom: 4px;
+}
+
+
+.preview {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow-x: hidden;
+    border-bottom: 10px solid black;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.preview table {
+    transform-origin: right bottom;
+    transform: scale(0.25);
+    border-collapse: collapse;
+}
+
+.preview table td {
+    position: relative;
+    text-align: center;
+    border: 2px solid grey;
+}
+
+textarea.editor, .legend-wrapper {
+    position: absolute;
+    top: 0;
+    right: 350px;
+    width: 202px;
+    height: 100%;
+    font-family: monospace;
+    font-size: 50px;
+    z-index: 20;
+    border-bottom: 10px solid black;
+    box-sizing: border-box;
+}
+
+.legend-wrapper {
+    display: none;
+    overflow-x: hidden;
+    overflow-y:auto;
+    right: 578px;
+    width: 90px;
+    height: auto;
+    bottom: 0;
+    background: black;
+    z-index: 100000000000;
+}
+
+.legend {
+    width: 100%;
+    height: 100%;
+}
+
+.legend-item {
+    height: 25px;
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: center;
+}
+
+.legend-item-text {
+    color: yellow;
+    font-size: 0.4em;
+    font-weight: bold;
+}
+
+.legend-item img {
+    position: static;
+    height: 100% !important;
+    width: auto !important;
+    margin: 0;
+}
+
+img {
+    width: 100px;
+}
+
+.brick-random-depth,
+.brick-uniform-depth,
+.narrow-passage,
+.narrow-passage-x,
+
+.glass-brick,
+.glass-brick-bomb,
+.glass-brick-counter,
+.glass-brick-bomb-counter,
+
+.pyramid-up,
+.pyramid-down,
+
+.slide-left-inverse,
+.slide-right-inverse,
+.slide-left,
+.slide-right,
+.column,
+.column-down,
+.pushbrick-pushed,
+.pushbrick,
+
+.pyramid-up-rotate,
+.pyramid-down-rotate,
+.slide-left-inverse-rotate,
+.slide-right-inverse-rotate,
+.slide-left-rotate,
+.slide-right-rotate {
+    height: 300px;
+    width: 225px;
+}
+
+.spike-down,    
+.spike-up {
+    height: 200px;
+    width: 150px;
+}
+
+.spike-up {
+    margin-top: 100px;
+}
+
+.spike-down {  
+    margin-top: -100px;
+}
+
+.spike-left,    
+.spike-right {
+    width: 250px;
+    height: 100px;
+}
+
+.potion-inverse-directions,
+.potion-inverse-directions-vertical,
+.potion-rotate-all,
+.potion-rotate-all-vertical,
+.potion-shrink,
+.potion-shrink-vertical {
+    width: 250px;
+    /* margin-top: 200px; */
+    height: 300px;
+}
+
+.cannon,
+.cannon-destrucrtible-projectile {
+    margin-top: 100px;
+    width: 130px;
+    margin-bottom: 50px;
+}
+
+
+.ball,
+.ball-above-pyramid {
+    width: 90px;
+    margin: 50px 0;
+}
+
+.big-ball {
+    width: -webkit-fill-available;
+}
+
+.column,
+.column-down {
+    margin: -55px 0;
+    width: 75px;
+}
+
+.wheel, .wheel-reverse {
+    position: absolute;
+    width: 720px;
+    height: auto;
+    top: -280px;
+    left: -240px;
+}
+
+.rock, .rock-special, .shield-pickup {
+    width: -webkit-fill-available;
+}
+
+.empty {
+    width: 225px;
+    height: 300px;
+}
+
+.delimiter {
+    width: 100%;
+    height: 30px;
+    border: 5px solid black;
+}
+
+.level-info-parent {
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.glass-count-parent {
+    color: #5eb4ff;
+}
+
+.menu {
+    z-index: 10000;
+    position: absolute;
+}
+
+textarea {
+    width: 300px;
+    height: 200px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.level-list-item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+    cursor: pointer;
+}
+        
+.level-list-item:hover {
+    color: #ddd;
+}
+
+.active {
+    font-weight: bold;
+    color: yellow;
+}
+/* .delimiter {
+    margin: 100px 0;
+} */

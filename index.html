@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vrickey level editor</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="src/main.js" type="module"> </script>
+    </head>
+    <body>
+        <textarea class="editor"></textarea>
+        <div class="legend-wrapper"><table class="legend"></table></div>
+
+        <div class="preview"></div>
+        <div class="level-info-parent">
+            <span class="row-count">0</span> LOC<br>
+            <span class="glass-count-parent"><span class="glass-count">0</span> glass blocks</span><br>
+        </div>
+        <div class="menu">
+            <button class="mirror">Mirror</button>
+
+            <hr>
+            <p>Unreal levels array code</p>
+            <textarea class="levels-from-unreal"></textarea><br>
+
+            <hr>
+            <ul class="levels-list"></ul>
+
+            <hr>
+            <button class="legend-toggle">Legend</button>
+        </div>
+    </body>
+</html>
