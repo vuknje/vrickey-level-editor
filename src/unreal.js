@@ -12,6 +12,10 @@ function parseLevelsStringFromUnreal(text) {
         levels.push(found);
     });
 
+    if (!definitionPart) {
+        throw new Error('Invalid Unreal code!')
+    }
+
     return {definitionPart, levels};     
 }
 
