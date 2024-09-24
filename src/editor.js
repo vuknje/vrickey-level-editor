@@ -6,10 +6,9 @@ import ScrollSync from './scrollsync.js';
 class Editor {
     #prevEditorValue = '';
 
-    constructor({ editorEl, previewEl, scrollRatio = 1.35, onUpdate = () => {} }) {
+    constructor({ editorEl, previewEl, scrollRatio = 1.35}) {
         this.editorEl = editorEl;
         this.previewEl = previewEl;
-        this.onUpdate = onUpdate;
 
         this.scrollSync = new ScrollSync({ previewEl, editorEl, scrollRatio });
         this.initListeners();
@@ -28,6 +27,8 @@ class Editor {
         this.updatePreview({enforceEditorScroll: true});
     }
 
+    onUpdate() {}
+
     initListeners() {
         this.editorEl.addEventListener('input', async () => {
             const addedCodeBelow = this.getCode().startsWith(this.#prevEditorValue);
@@ -37,6 +38,8 @@ class Editor {
     }
 
     updatePreview({enforcePreviewScroll = false, enforceEditorScroll = false} = {}) {
+        if (!this.getCode()) return;
+        
         const scrollTop = this.previewEl.scrollTop;
         
         const lines = this.#levelCode2Array(this.getCode());
