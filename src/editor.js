@@ -3,7 +3,6 @@ import { templateLevel } from './templates.js';
 
 import ScrollSync from './scrollsync.js';
 
-
 class Editor {
     #prevEditorValue = '';
 
@@ -46,7 +45,7 @@ class Editor {
         document.querySelector('.row-count').textContent = lines.length;
         document.querySelector('.glass-count').textContent = this.#getGlassCount(lines);
         
-        this.scrollSync.disabled = true;
+        this.scrollSync.disable();
     
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -58,7 +57,7 @@ class Editor {
     
                 this.scrollSync.startEditorScroll =  this.editorEl.scrollTop;
                 this.scrollSync.startPreviewScroll =  this.previewEl.scrollTop;
-                this.scrollSync.disabled = false;
+                this.scrollSync.enable();
 
                 this.onUpdate();
                 resolve();
