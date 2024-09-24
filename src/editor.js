@@ -11,9 +11,9 @@ class Editor {
         this.previewEl = previewEl;
 
         this.scrollSync = new ScrollSync({ previewEl, editorEl, scrollRatio });
-        this.initListeners();
+        this.#initListeners();
     }
-
+    
     setCode(code) {
         this.editorEl.value = code;
     }
@@ -28,14 +28,6 @@ class Editor {
     }
 
     onUpdate() {}
-
-    initListeners() {
-        this.editorEl.addEventListener('input', async () => {
-            const addedCodeBelow = this.getCode().startsWith(this.#prevEditorValue);
-            await this.updatePreview({enforcePreviewScroll: addedCodeBelow});
-            this.#prevEditorValue = this.getCode();
-        });
-    }
 
     updatePreview({enforcePreviewScroll = false, enforceEditorScroll = false} = {}) {
         if (!this.getCode()) return;
@@ -72,11 +64,19 @@ class Editor {
         this.setCode(this.#linesToString(this.#levelCode2Array(this.getCode())));
     }
 
+    #initListeners() {
+        this.editorEl.addEventListener('input', async () => {
+            const addedCodeBelow = this.getCode().startsWith(this.#prevEditorValue);
+            await this.updatePreview({enforcePreviewScroll: addedCodeBelow});
+            this.#prevEditorValue = this.getCode();
+        });
+    }
+
     #levelCode2Array(str) {
         return str
             .split('|')
             .map(v => v.trim())
-            .filter((v) => v) // compact
+            .filter(v => v) // compact
             .map(v => v.split(''));
     }
     
