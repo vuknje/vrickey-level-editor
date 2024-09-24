@@ -1,4 +1,4 @@
-import { throttle, debounce } from './helpers.js';
+import { debounce } from './helpers.js';
 
 class ScrollSync {
     #disabled = false
@@ -25,11 +25,12 @@ class ScrollSync {
     }
 
     #initListeners() {
-        this.editorEl.addEventListener('scroll', throttle(this.#editor2PreviewSync.bind(this), 20));
-        this.previewEl.addEventListener('scroll', throttle(this.#preview2EditorSync.bind(this), 20));
+        this.editorEl.addEventListener('scroll', this.#editor2PreviewSync.bind(this));
+        this.previewEl.addEventListener('scroll', this.#preview2EditorSync.bind(this));
     }
 
     #editor2PreviewSync() {
+        
         if (this.#disabled) return;
         if (this.#scrollSource.preview) return;
 
